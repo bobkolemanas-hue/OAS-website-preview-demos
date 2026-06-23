@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ottawa Agent Systems Website Preview Demos</title>
+    <meta
+      name="description"
+      content="Public fictional website preview demos for Ottawa Agent Systems local service business concepts."
+    >
+    <style>
+      :root {
+        color-scheme: light;
+        --navy: #10243a;
+        --steel: #53687a;
+        --steel-soft: #d8e0e6;
+        --orange: #d96b2b;
+        --orange-dark: #a94718;
+        --offwhite: #f7f3ea;
+        --white: #ffffff;
+        --ink: #17212b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--ink);
+        background: var(--offwhite);
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      header {
+        background: var(--navy);
+        color: var(--white);
+        border-bottom: 5px solid var(--orange);
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 0;
+      }
+
+      .brand {
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .badge {
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        border-radius: 999px;
+        padding: 6px 10px;
+        color: #dce6ee;
+        font-size: 0.86rem;
+        white-space: nowrap;
+      }
+
+      main {
+        padding: 38px 0 52px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 22px;
+        padding: 34px 0 24px;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 760px;
+        color: var(--navy);
+        font-size: clamp(2.2rem, 8vw, 4.6rem);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 690px;
+        margin: 0;
+        color: #334554;
+        font-size: 1.1rem;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        border: 2px solid var(--navy);
+        border-radius: 6px;
+        padding: 11px 16px;
+        text-decoration: none;
+        font-weight: 800;
+      }
+
+      .button.primary {
+        border-color: var(--orange);
+        background: var(--orange);
+        color: var(--white);
+      }
+
+      .button.primary:hover,
+      .button.primary:focus-visible {
+        border-color: var(--orange-dark);
+        background: var(--orange-dark);
+      }
+
+      .button.secondary:hover,
+      .button.secondary:focus-visible {
+        background: var(--navy);
+        color: var(--white);
+      }
+
+      .demo-list {
+        display: grid;
+        gap: 16px;
+        margin-top: 26px;
+      }
+
+      .demo-card {
+        display: grid;
+        gap: 8px;
+        padding: 20px;
+        border: 1px solid var(--steel-soft);
+        border-radius: 8px;
+        background: var(--white);
+      }
+
+      .demo-card h2 {
+        margin: 0;
+        color: var(--navy);
+        font-size: 1.35rem;
+        letter-spacing: 0;
+      }
+
+      .demo-card p {
+        margin: 0;
+        color: #465866;
+      }
+
+      .disclaimer {
+        margin-top: 28px;
+        padding: 16px;
+        border-left: 5px solid var(--orange);
+        background: #fff8ef;
+        color: #3f3328;
+      }
+
+      footer {
+        border-top: 1px solid var(--steel-soft);
+        color: var(--steel);
+        padding: 22px 0;
+        font-size: 0.92rem;
+      }
+
+      @media (min-width: 760px) {
+        main {
+          padding-top: 58px;
+        }
+
+        .hero {
+          grid-template-columns: minmax(0, 1fr) 280px;
+          align-items: end;
+        }
+
+        .demo-list {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="shell topbar">
+        <div class="brand">Ottawa Agent Systems</div>
+        <div class="badge">Fictional public demos</div>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <h1 id="page-title">Website preview demos for local service businesses.</h1>
+          <p class="lead">
+            A small public gallery of fictional static pages showing cleaner service pages, clearer calls to action, and demo-only quote flows.
+          </p>
+        </div>
+        <div class="actions" aria-label="Demo actions">
+          <a class="button primary" href="auto-repair-demo/">View auto repair demo</a>
+        </div>
+      </section>
+
+      <section class="demo-list" aria-label="Available demos">
+        <article class="demo-card">
+          <h2>Ottawa Auto Care Demo</h2>
+          <p>Fictional auto repair page with a quote request flow, service cards, local contact details, and a clear demo disclaimer.</p>
+          <a class="button secondary" href="auto-repair-demo/">Open demo</a>
+        </article>
+      </section>
+
+      <aside class="disclaimer">
+        These are fictional concept pages. They do not represent real businesses and do not collect or submit visitor information.
+      </aside>
+    </main>
+
+    <footer>
+      <div class="shell">Static HTML/CSS/JS only. No analytics, tracking, cookies, backend, or form submission.</div>
+    </footer>
+  </body>
+</html>
