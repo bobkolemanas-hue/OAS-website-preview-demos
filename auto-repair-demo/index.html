@@ -695,11 +695,20 @@
           max-width: 34ch;
         }
 
+        .hero-media {
+          min-height: 0;
+        }
+
+        .hero-media img {
+          height: auto;
+          min-height: 0;
+          object-fit: contain;
+        }
+
         .media-label {
-          right: 10px;
-          bottom: 10px;
-          left: 10px;
+          position: static;
           max-width: none;
+          border-left: 0;
         }
 
         .quick-item {
