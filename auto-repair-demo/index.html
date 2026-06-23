@@ -11,17 +11,20 @@
     <style>
       :root {
         color-scheme: light;
-        --navy: #10243a;
-        --navy-2: #18314b;
-        --steel: #586d7c;
-        --steel-2: #d6e0e6;
-        --orange: #d96b2b;
-        --orange-dark: #a94918;
-        --offwhite: #f7f3ea;
-        --paper: #fffdf8;
+        --ink: #161b1f;
+        --charcoal: #20282d;
+        --charcoal-2: #2c373d;
+        --green-black: #162a25;
+        --moss: #617465;
+        --steel: #6e7c82;
+        --line: #d7ddd8;
+        --paper: #fffaf1;
+        --paper-2: #f1eadf;
         --white: #ffffff;
-        --ink: #17212b;
-        --muted: #435565;
+        --orange: #dc6b2a;
+        --orange-dark: #9e4618;
+        --cream: #fff4df;
+        --shadow: 0 18px 44px rgba(31, 39, 43, 0.14);
       }
 
       * {
@@ -34,10 +37,15 @@
 
       body {
         margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
         color: var(--ink);
-        background: var(--offwhite);
+        background: var(--paper);
+        font-family: Arial, Helvetica, sans-serif;
         line-height: 1.5;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
       }
 
       a {
@@ -45,52 +53,55 @@
       }
 
       .shell {
-        width: min(1120px, calc(100% - 32px));
+        width: min(1140px, calc(100% - 32px));
         margin: 0 auto;
       }
 
       .site-header {
         position: sticky;
         top: 0;
-        z-index: 10;
-        background: rgba(16, 36, 58, 0.98);
+        z-index: 20;
+        background: rgba(22, 42, 37, 0.97);
         color: var(--white);
-        border-bottom: 4px solid var(--orange);
+        border-bottom: 3px solid var(--orange);
       }
 
       .topbar {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 12px;
+        gap: 14px;
         padding: 12px 0;
       }
 
       .brand {
         display: grid;
         gap: 1px;
+        text-decoration: none;
       }
 
       .brand strong {
-        font-size: 1.02rem;
+        font-size: 1rem;
         letter-spacing: 0;
       }
 
       .brand span {
-        color: #dbe6ef;
-        font-size: 0.8rem;
+        color: #dbe6dd;
+        font-size: 0.78rem;
       }
 
-      .header-actions {
+      .nav {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
         gap: 8px;
       }
 
       .nav-link {
         display: none;
-        color: #e7eef4;
-        font-weight: 700;
+        color: #eff5ef;
+        font-size: 0.9rem;
+        font-weight: 800;
         text-decoration: none;
       }
 
@@ -99,13 +110,23 @@
         align-items: center;
         justify-content: center;
         min-height: 44px;
-        border: 2px solid var(--navy);
+        border: 2px solid var(--charcoal);
         border-radius: 6px;
-        padding: 10px 14px;
-        text-decoration: none;
-        font-weight: 800;
+        padding: 10px 15px;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+        font: inherit;
+        font-weight: 900;
         line-height: 1;
-        transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+      }
+
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-1px);
       }
 
       .button.primary {
@@ -121,15 +142,27 @@
       }
 
       .button.secondary {
-        border-color: var(--steel-2);
-        background: var(--white);
-        color: var(--navy);
+        border-color: rgba(255, 255, 255, 0.56);
+        color: var(--white);
       }
 
       .button.secondary:hover,
       .button.secondary:focus-visible {
-        border-color: var(--navy);
-        background: var(--navy);
+        border-color: var(--white);
+        background: var(--white);
+        color: var(--green-black);
+      }
+
+      .button.light {
+        border-color: var(--line);
+        background: var(--white);
+        color: var(--green-black);
+      }
+
+      .button.light:hover,
+      .button.light:focus-visible {
+        border-color: var(--green-black);
+        background: var(--green-black);
         color: var(--white);
       }
 
@@ -138,25 +171,33 @@
         border-color: rgba(255, 255, 255, 0.45);
         padding: 8px 10px;
         color: var(--white);
-        font-size: 0.88rem;
+        font-size: 0.86rem;
       }
 
       .hero {
-        background: var(--navy);
-        border-bottom: 6px solid var(--orange);
+        overflow: hidden;
+        background: var(--green-black);
         color: var(--white);
       }
 
-      .hero-grid {
+      .hero-layout {
         display: grid;
-        gap: 22px;
-        padding: 38px 0 28px;
+        gap: 24px;
+        padding: 34px 0 22px;
+      }
+
+      .hero-layout > *,
+      .service-grid > *,
+      .process-layout > *,
+      .quote-layout > *,
+      .area-grid > * {
+        min-width: 0;
       }
 
       .eyebrow {
-        margin: 0 0 10px;
-        color: #ffc99f;
-        font-size: 0.82rem;
+        margin: 0 0 12px;
+        color: #ffc693;
+        font-size: 0.78rem;
         font-weight: 900;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -171,15 +212,15 @@
       }
 
       h1 {
-        max-width: 760px;
-        font-size: clamp(2.18rem, 10vw, 4.9rem);
-        line-height: 0.95;
+        max-width: 780px;
+        font-size: clamp(2.3rem, 12vw, 5.65rem);
+        line-height: 0.92;
       }
 
       .hero-copy {
         max-width: 640px;
-        margin: 16px 0 0;
-        color: #e4edf4;
+        margin: 18px 0 0;
+        color: #e6eee7;
         font-size: 1.08rem;
       }
 
@@ -187,225 +228,351 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-        margin-top: 20px;
+        margin-top: 22px;
       }
 
-      .hero-facts {
-        display: grid;
-        gap: 10px;
-        padding: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.22);
+      .hero-note {
+        max-width: 580px;
+        margin: 14px 0 0;
+        color: #b9c9bf;
+        font-size: 0.92rem;
+      }
+
+      .hero-media {
+        position: relative;
+        min-height: 310px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
         border-radius: 8px;
-        background: rgba(255, 255, 255, 0.08);
+        background: var(--charcoal);
+        box-shadow: var(--shadow);
+        overflow: hidden;
       }
 
-      .fact {
-        display: grid;
-        gap: 2px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        min-height: 310px;
+        object-fit: cover;
       }
 
-      .fact:last-child {
-        padding-bottom: 0;
-        border-bottom: 0;
-      }
-
-      .fact span {
-        color: #b9c8d4;
-        font-size: 0.8rem;
+      .media-label {
+        position: absolute;
+        right: 14px;
+        bottom: 14px;
+        max-width: 250px;
+        padding: 12px;
+        border-left: 4px solid var(--orange);
+        background: rgba(22, 27, 31, 0.88);
+        color: var(--white);
+        font-size: 0.9rem;
         font-weight: 800;
+      }
+
+      .quick-strip {
+        background: var(--charcoal);
+        color: var(--white);
+      }
+
+      .quick-grid {
+        display: grid;
+        gap: 1px;
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .quick-item {
+        display: grid;
+        gap: 4px;
+        padding: 17px 0;
+        background: var(--charcoal);
+      }
+
+      .quick-item span {
+        color: #bfc9c0;
+        font-size: 0.77rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
       }
 
-      .fact strong {
+      .quick-item strong {
         font-size: 1rem;
       }
 
       section {
-        padding: 46px 0;
+        padding: 52px 0;
       }
 
       .section-head {
         display: grid;
         gap: 10px;
-        max-width: 740px;
-        margin-bottom: 22px;
+        max-width: 760px;
+        margin-bottom: 24px;
       }
 
       .section-head h2 {
-        color: var(--navy);
-        font-size: clamp(1.65rem, 6vw, 2.7rem);
-        line-height: 1.04;
+        color: var(--green-black);
+        font-size: clamp(1.8rem, 7vw, 3rem);
+        line-height: 1.02;
       }
 
       .section-head p {
         margin: 0;
-        color: var(--muted);
+        color: #52615a;
+        font-size: 1rem;
       }
 
-      .trust-strip {
-        padding: 18px 0;
-        background: var(--paper);
-        border-bottom: 1px solid var(--steel-2);
-      }
-
-      .trust-grid {
-        display: grid;
-        gap: 10px;
-      }
-
-      .trust-item {
-        display: grid;
-        gap: 4px;
-        padding: 14px;
-        border-left: 4px solid var(--orange);
-        background: var(--white);
-      }
-
-      .trust-item strong {
-        color: var(--navy);
-      }
-
-      .trust-item span {
-        color: var(--muted);
-        font-size: 0.92rem;
-      }
-
-      .card-grid,
-      .reason-grid {
+      .service-grid {
         display: grid;
         gap: 14px;
       }
 
-      .service-card,
-      .reason-card,
-      .contact-card {
+      .service-card {
+        display: grid;
+        gap: 12px;
+        min-height: 100%;
         padding: 18px;
-        border: 1px solid var(--steel-2);
+        border: 1px solid var(--line);
         border-radius: 8px;
         background: var(--white);
       }
 
-      .service-card h3,
-      .reason-card h3,
-      .contact-card h3 {
-        color: var(--navy);
+      .service-card h3 {
+        color: var(--green-black);
         font-size: 1.12rem;
       }
 
-      .service-card p,
-      .reason-card p,
-      .contact-card p {
-        margin: 9px 0 0;
-        color: var(--muted);
+      .service-card p {
+        margin: 0;
+        color: #4c5d55;
       }
 
-      .price-note {
-        display: inline-block;
-        margin-top: 12px;
+      .service-tag {
+        justify-self: start;
+        padding: 6px 9px;
+        border: 1px solid #e6c7a6;
+        border-radius: 999px;
+        background: #fff6e9;
         color: var(--orange-dark);
+        font-size: 0.78rem;
         font-weight: 900;
-        font-size: 0.92rem;
       }
 
-      .why {
-        background: var(--paper);
-        border-top: 1px solid var(--steel-2);
-        border-bottom: 1px solid var(--steel-2);
+      .process {
+        background: var(--paper-2);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
       }
 
-      .quote-wrap {
+      .process-layout {
         display: grid;
-        gap: 22px;
+        gap: 26px;
+      }
+
+      .steps {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .step {
+        display: grid;
+        grid-template-columns: 40px minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+        padding: 16px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: var(--green-black);
+        color: var(--white);
+        font-weight: 900;
+      }
+
+      .step strong {
+        display: block;
+        color: var(--green-black);
+      }
+
+      .step p {
+        margin: 4px 0 0;
+        color: #52615a;
+      }
+
+      .notice {
+        padding: 18px;
+        border-left: 5px solid var(--orange);
+        background: var(--green-black);
+        color: var(--white);
+      }
+
+      .notice strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .notice p {
+        margin: 0;
+        color: #e2ece4;
+      }
+
+      .quote-layout {
+        display: grid;
+        gap: 24px;
+      }
+
+      .quote-aside {
+        display: grid;
+        gap: 14px;
+        align-self: start;
+      }
+
+      .contact-panel,
+      form {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--white);
+        box-shadow: 0 12px 32px rgba(31, 39, 43, 0.08);
+      }
+
+      .contact-panel {
+        display: grid;
+        gap: 12px;
+        padding: 18px;
+      }
+
+      .contact-panel h3 {
+        color: var(--green-black);
+        font-size: 1.18rem;
+      }
+
+      .contact-panel p {
+        margin: 0;
+        color: #52615a;
+      }
+
+      .contact-line {
+        display: grid;
+        gap: 4px;
+        padding-top: 12px;
+        border-top: 1px solid var(--line);
+      }
+
+      .contact-line span {
+        color: var(--steel);
+        font-size: 0.8rem;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .contact-line a,
+      .contact-line strong {
+        color: var(--green-black);
+        font-weight: 900;
       }
 
       form {
         display: grid;
-        gap: 14px;
+        gap: 15px;
         padding: 18px;
-        border: 1px solid var(--steel-2);
-        border-radius: 8px;
-        background: var(--white);
+      }
+
+      .form-row {
+        display: grid;
+        gap: 15px;
       }
 
       label {
         display: grid;
-        gap: 6px;
-        color: var(--navy);
-        font-weight: 800;
+        gap: 7px;
+        color: var(--green-black);
+        font-weight: 900;
       }
 
       input,
       select,
       textarea {
         width: 100%;
-        min-height: 44px;
-        border: 1px solid #b8c5ce;
+        min-height: 46px;
+        border: 1px solid #b8c3bb;
         border-radius: 6px;
         padding: 10px 11px;
+        background: #fffefd;
         color: var(--ink);
-        background: var(--white);
         font: inherit;
       }
 
-      textarea {
-        min-height: 118px;
-        resize: vertical;
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: 3px solid rgba(220, 107, 42, 0.24);
+        border-color: var(--orange-dark);
       }
 
-      .form-row {
-        display: grid;
-        gap: 14px;
+      textarea {
+        min-height: 126px;
+        resize: vertical;
       }
 
       .form-note,
       .demo-status {
         margin: 0;
-        color: var(--muted);
+        color: #52615a;
         font-size: 0.92rem;
       }
 
       .demo-status {
         min-height: 24px;
         color: var(--orange-dark);
-        font-weight: 800;
+        font-weight: 900;
       }
 
-      .contact {
-        background: var(--navy);
+      .area {
+        background: var(--green-black);
         color: var(--white);
       }
 
-      .contact .section-head h2,
-      .contact .section-head p {
+      .area .section-head h2,
+      .area .section-head p {
         color: var(--white);
       }
 
-      .contact-grid {
+      .area-grid {
         display: grid;
         gap: 14px;
       }
 
-      .contact-card {
-        border-color: rgba(255, 255, 255, 0.16);
+      .area-card {
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.17);
+        border-radius: 8px;
         background: rgba(255, 255, 255, 0.08);
       }
 
-      .contact-card h3,
-      .contact-card p,
-      .contact-card a {
-        color: var(--white);
+      .area-card h3 {
+        font-size: 1.12rem;
       }
 
-      .contact-card p {
-        color: #dbe6ef;
+      .area-card p {
+        margin: 8px 0 0;
+        color: #e0ebe2;
       }
 
       footer {
-        background: #0b1a2b;
-        color: #c6d3df;
-        padding: 26px 0;
+        background: #111a1d;
+        color: #d6dfd8;
+        padding: 28px 0;
       }
 
       .footer-grid {
@@ -425,43 +592,70 @@
         font-size: 0.92rem;
       }
 
-      @media (min-width: 720px) {
+      @media (min-width: 760px) {
+        .brand strong {
+          font-size: 1.08rem;
+        }
+
         .nav-link {
           display: inline-flex;
         }
 
-        .hero-grid {
-          grid-template-columns: minmax(0, 1fr) 320px;
+        .hero-layout {
+          grid-template-columns: minmax(0, 0.92fr) minmax(320px, 0.78fr);
           align-items: center;
-          padding: 72px 0 56px;
+          padding: 72px 0 58px;
         }
 
-        .trust-grid {
+        .quick-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .quick-item {
+          padding-right: 18px;
+          padding-left: 18px;
+        }
+
+        .service-grid {
           grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
-        .card-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-
-        .reason-grid,
-        .contact-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .quote-wrap {
-          grid-template-columns: 0.85fr 1.15fr;
+        .process-layout {
+          grid-template-columns: 0.82fr 1.18fr;
           align-items: start;
         }
 
-        .form-row {
+        .quote-layout {
+          grid-template-columns: 0.76fr 1.24fr;
+          align-items: start;
+        }
+
+        .form-row,
+        .area-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
-      @media (max-width: 420px) {
+      @media (max-width: 520px) {
         .shell {
-          width: min(100% - 24px, 1120px);
+          width: min(100% - 24px, 1140px);
+        }
+
+        .topbar {
+          gap: 8px;
+        }
+
+        .brand strong {
+          font-size: 0.94rem;
+        }
+
+        .brand span,
+        .nav-link {
+          display: none;
+        }
+
+        .nav {
+          gap: 6px;
         }
 
         .button {
@@ -469,12 +663,47 @@
         }
 
         .button.header-call {
-          width: auto;
-          white-space: nowrap;
+          display: none;
         }
 
-        .brand span {
-          display: none;
+        .hero-actions .button {
+          width: 100%;
+        }
+
+        h1 {
+          max-width: 11ch;
+          font-size: clamp(2rem, 10vw, 2.55rem);
+          line-height: 0.98;
+        }
+
+        .hero-copy,
+        .hero-note {
+          max-width: 100%;
+        }
+
+        .hero-copy {
+          max-width: 34ch;
+          font-size: 1rem;
+          overflow-wrap: break-word;
+        }
+
+        .hero-note {
+          max-width: 34ch;
+        }
+
+        .hero-actions {
+          max-width: 34ch;
+        }
+
+        .media-label {
+          right: 10px;
+          bottom: 10px;
+          left: 10px;
+          max-width: none;
+        }
+
+        .quick-item {
+          padding: 14px 0;
         }
       }
     </style>
@@ -484,61 +713,65 @@
       <div class="shell topbar">
         <a class="brand" href="#top" aria-label="Ottawa Auto Care Demo home">
           <strong>Ottawa Auto Care Demo</strong>
-          <span>Fictional auto repair concept</span>
+          <span>Fictional auto repair website concept</span>
         </a>
-        <div class="header-actions">
+        <nav class="nav" aria-label="Primary navigation">
           <a class="nav-link" href="#services">Services</a>
           <a class="nav-link" href="#quote">Quote</a>
           <a class="button header-call" href="tel:+16135550198">Call now</a>
-        </div>
+        </nav>
       </div>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="hero-title">
-        <div class="shell hero-grid">
+        <div class="shell hero-layout">
           <div>
-            <p class="eyebrow">Ottawa, ON auto repair demo</p>
-            <h1 id="hero-title">Clear quotes for practical car repairs.</h1>
+            <p class="eyebrow">Fictional Ottawa auto repair concept</p>
+            <h1 id="hero-title">Auto repair in Ottawa with clear next steps.</h1>
             <p class="hero-copy">
-              A fictional local garage concept for maintenance, diagnostics, brakes, tires, and repair questions without the usual guesswork.
+              A demo garage page for diagnostics, brakes, tires, maintenance, and repair questions. The quote path is visible, the services are plain, and the contact details are demo-safe.
             </p>
             <div class="hero-actions" aria-label="Primary actions">
-              <a class="button primary" href="#quote">Request a quote</a>
-              <a class="button secondary" href="tel:+16135550198">Call now</a>
+              <a class="button primary" href="#quote">Request a demo quote</a>
+              <a class="button secondary" href="tel:+16135550198">Call 613-555-0198</a>
             </div>
+            <p class="hero-note">
+              Public preview only. This page shows a lead-capture concept and does not represent a real business.
+            </p>
           </div>
 
-          <aside class="hero-facts" aria-label="Demo contact details">
-            <div class="fact">
-              <span>Phone</span>
-              <strong>613-555-0198</strong>
-            </div>
-            <div class="fact">
-              <span>Email</span>
-              <strong>hello@example.com</strong>
-            </div>
-            <div class="fact">
-              <span>Service area</span>
-              <strong>Ottawa, ON</strong>
-            </div>
-          </aside>
+          <figure class="hero-media">
+            <img
+              src="shop-diagnostics-demo.jpg"
+              alt="A generic mechanic inspecting an open vehicle engine in a clean repair bay."
+              width="480"
+              height="248"
+            >
+            <figcaption class="media-label">
+              Clear intake notes before any repair conversation.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
-      <section class="trust-strip" aria-label="Fictional trust notes">
-        <div class="shell trust-grid">
-          <div class="trust-item">
-            <strong>Demo review sample</strong>
-            <span>"The estimate was easy to understand before any work was shown."</span>
+      <section class="quick-strip" aria-label="Demo contact and service facts">
+        <div class="shell quick-grid">
+          <div class="quick-item">
+            <span>Service area</span>
+            <strong>Ottawa, ON</strong>
           </div>
-          <div class="trust-item">
-            <strong>Clear service notes</strong>
-            <span>Written repair summaries, priority levels, and next-step options.</span>
+          <div class="quick-item">
+            <span>Phone</span>
+            <strong>613-555-0198</strong>
           </div>
-          <div class="trust-item">
-            <strong>Local contact path</strong>
-            <span>Quote request, phone, and email kept visible without popups.</span>
+          <div class="quick-item">
+            <span>Email</span>
+            <strong>hello@example.com</strong>
+          </div>
+          <div class="quick-item">
+            <span>Form status</span>
+            <strong>Demo only</strong>
           </div>
         </div>
       </section>
@@ -546,73 +779,113 @@
       <section id="services" aria-labelledby="services-title">
         <div class="shell">
           <div class="section-head">
-            <h2 id="services-title">Repair pages customers can scan quickly.</h2>
+            <h2 id="services-title">Common repair needs, sorted by what drivers ask first.</h2>
             <p>
-              This fictional demo groups common auto care needs in plain language so a visitor can decide what to ask for before calling.
+              A stronger service page names the work customers recognize: warning lights, brakes, tires, maintenance, leaks, batteries, and winter readiness.
             </p>
           </div>
 
-          <div class="card-grid">
+          <div class="service-grid">
             <article class="service-card">
-              <h3>Diagnostics and warning lights</h3>
-              <p>Describe the dashboard light, noise, leak, or handling issue and get a practical next step.</p>
-              <span class="price-note">Quote before work</span>
+              <span class="service-tag">Diagnostics</span>
+              <h3>Warning lights and strange sounds</h3>
+              <p>Share the light, noise, leak, smell, vibration, or timing issue so the first reply can focus on the right next step.</p>
             </article>
             <article class="service-card">
-              <h3>Brakes, tires, and steering</h3>
-              <p>Help with squeaks, vibration, uneven wear, tire swaps, and safety checks.</p>
-              <span class="price-note">Priority explained</span>
+              <span class="service-tag">Safety items</span>
+              <h3>Brakes, steering, and suspension</h3>
+              <p>Help for squeaks, pulling, uneven braking, rough handling, and parts that need a priority conversation.</p>
             </article>
             <article class="service-card">
-              <h3>Maintenance and seasonal care</h3>
-              <p>Oil service, filters, batteries, fluid checks, winter readiness, and routine upkeep.</p>
-              <span class="price-note">Simple scheduling</span>
+              <span class="service-tag">Seasonal</span>
+              <h3>Tires and winter readiness</h3>
+              <p>Demo copy for tire swaps, pressure concerns, tread checks, batteries, wipers, fluids, and Ottawa weather preparation.</p>
+            </article>
+            <article class="service-card">
+              <span class="service-tag">Maintenance</span>
+              <h3>Oil, filters, fluids, and batteries</h3>
+              <p>Routine service language that helps visitors ask for upkeep without decoding a maintenance schedule first.</p>
+            </article>
+            <article class="service-card">
+              <span class="service-tag">Repair triage</span>
+              <h3>Leaks, smells, and overheating</h3>
+              <p>Plain prompts for the symptoms that make people nervous, with space to describe when the issue appears.</p>
+            </article>
+            <article class="service-card">
+              <span class="service-tag">Quote path</span>
+              <h3>Written notes before the call</h3>
+              <p>The demo form gathers the basics so a visitor can start with context instead of repeating the whole story by phone.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="why" aria-labelledby="why-title">
-        <div class="shell">
+      <section class="process" aria-labelledby="process-title">
+        <div class="shell process-layout">
           <div class="section-head">
-            <h2 id="why-title">Why this page style works for local repair.</h2>
+            <h2 id="process-title">What happens after the quote request.</h2>
             <p>
-              The design keeps the action clear, the copy concrete, and the trust cues modest because repair customers usually want clarity before polish.
+              The page sets expectations without pretending to book real appointments or submit real customer data.
             </p>
+            <div class="notice">
+              <strong>Fictional public demo</strong>
+              <p>The business name, phone, email, service notes, and image are demo-safe and not tied to a real shop.</p>
+            </div>
           </div>
 
-          <div class="reason-grid">
-            <article class="reason-card">
-              <h3>Quote path is easy to find</h3>
-              <p>The request button appears in the hero, header, and form section without forcing a visitor through a sales funnel.</p>
-            </article>
-            <article class="reason-card">
-              <h3>Local details stay visible</h3>
-              <p>Ottawa service area, demo phone, and demo email are close to the decision points.</p>
-            </article>
-            <article class="reason-card">
-              <h3>Services use shop language</h3>
-              <p>The sections focus on brakes, tires, diagnostics, maintenance, and seasonal needs instead of vague marketing claims.</p>
-            </article>
-            <article class="reason-card">
-              <h3>Demo status is explicit</h3>
-              <p>Fictional reviews and demo-only contact details are labeled so the public preview does not imitate a real shop.</p>
-            </article>
-          </div>
+          <ol class="steps">
+            <li class="step">
+              <span class="step-number">1</span>
+              <div>
+                <strong>Describe the issue</strong>
+                <p>Vehicle, symptom, timing, and the service category give the quote request enough shape.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-number">2</span>
+              <div>
+                <strong>Sort the priority</strong>
+                <p>Repair pages work better when safety concerns, maintenance, and unknown noises are separated clearly.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step-number">3</span>
+              <div>
+                <strong>Choose the contact path</strong>
+                <p>Visitors can use the demo form, phone link, or email link without popups or third-party widgets.</p>
+              </div>
+            </li>
+          </ol>
         </div>
       </section>
 
       <section id="quote" aria-labelledby="quote-title">
-        <div class="shell quote-wrap">
-          <div class="section-head">
-            <h2 id="quote-title">Demo quote request.</h2>
-            <p>
-              This form is included to show the lead-capture layout. It does not send, store, or process visitor information.
-            </p>
-            <p class="form-note">
-              For the demo, the button only displays a local message in this browser tab.
-            </p>
-          </div>
+        <div class="shell quote-layout">
+          <aside class="quote-aside" aria-label="Demo contact details">
+            <div class="section-head">
+              <h2 id="quote-title">Request a demo quote.</h2>
+              <p>
+                This form is part of the static preview. It only displays a confirmation message in this browser tab.
+              </p>
+            </div>
+
+            <div class="contact-panel">
+              <h3>Ottawa Auto Care Demo</h3>
+              <p>Fictional contact details for a public local service website concept.</p>
+              <div class="contact-line">
+                <span>Call</span>
+                <a href="tel:+16135550198">613-555-0198</a>
+              </div>
+              <div class="contact-line">
+                <span>Email</span>
+                <a href="mailto:hello@example.com">hello@example.com</a>
+              </div>
+              <div class="contact-line">
+                <span>Area</span>
+                <strong>Ottawa, ON</strong>
+              </div>
+            </div>
+          </aside>
 
           <form id="quote-form" novalidate>
             <div class="form-row">
@@ -635,10 +908,10 @@
                 Service needed
                 <select name="service">
                   <option value="">Select a demo service</option>
-                  <option>Diagnostics</option>
-                  <option>Brakes</option>
-                  <option>Tires</option>
-                  <option>Maintenance</option>
+                  <option>Warning light or diagnostics</option>
+                  <option>Brakes, steering, or suspension</option>
+                  <option>Tires or seasonal service</option>
+                  <option>Oil, filters, fluids, or battery</option>
                   <option>Other repair question</option>
                 </select>
               </label>
@@ -646,34 +919,33 @@
 
             <label>
               What is happening?
-              <textarea name="message" placeholder="Describe the sound, light, leak, timing, or service request."></textarea>
+              <textarea name="message" placeholder="Describe the sound, light, leak, timing, recent change, or service request."></textarea>
             </label>
 
-            <button class="button primary" type="submit">Request a quote</button>
+            <button class="button primary" type="submit">Show demo confirmation</button>
             <p class="demo-status" id="demo-status" role="status" aria-live="polite"></p>
-            <p class="form-note">Demo only. No message is sent, stored, tracked, or submitted.</p>
+            <p class="form-note">Demo only. No message is sent, stored, or submitted.</p>
           </form>
         </div>
       </section>
 
-      <section class="contact" aria-labelledby="contact-title">
+      <section class="area" aria-labelledby="area-title">
         <div class="shell">
           <div class="section-head">
-            <h2 id="contact-title">Service area and contact.</h2>
+            <h2 id="area-title">Built for a local service decision.</h2>
             <p>
-              Fictional contact details for a public preview of a local Ottawa service page.
+              The page keeps location, phone, services, and quote request close together because repair visitors usually arrive with a specific problem.
             </p>
           </div>
 
-          <div class="contact-grid">
-            <article class="contact-card">
-              <h3>Ottawa, ON</h3>
-              <p>Demo service area copy for neighbourhood repair searches and nearby quote requests.</p>
+          <div class="area-grid">
+            <article class="area-card">
+              <h3>Ottawa service area copy</h3>
+              <p>Demo-safe local wording without a real address, map embed, or named neighbourhood claims.</p>
             </article>
-            <article class="contact-card">
-              <h3>Contact</h3>
-              <p><a href="tel:+16135550198">613-555-0198</a></p>
-              <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+            <article class="area-card">
+              <h3>No third-party widgets</h3>
+              <p>The public preview uses local HTML, CSS, JavaScript, and one local image file.</p>
             </article>
           </div>
         </div>
@@ -686,7 +958,7 @@
           This is a fictional demo website created to show a website/lead-capture preview concept. It is not a real business.
         </div>
         <p class="small">
-          Static HTML/CSS/JS only. No analytics, tracking, cookies, backend, database, secrets, API keys, paid dependencies, or third-party form submission.
+          Static demo page. The form has no action endpoint and only shows an on-page confirmation message.
         </p>
       </div>
     </footer>
