@@ -200,14 +200,21 @@
         min-width: 0;
         aspect-ratio: 16 / 9;
         overflow: hidden;
-        background: var(--soft);
+        background-color: var(--soft);
+        background-image: url("slate-garage-hero-desktop.jpg");
+        background-position: center;
+        background-size: cover;
       }
 
       .hero-media img {
+        display: none;
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-drag: none;
       }
 
       section {
@@ -550,11 +557,13 @@
 
         .hero-media {
           aspect-ratio: auto;
+          background-image: none;
           margin-right: -12px;
           margin-left: -12px;
         }
 
         .hero-media img {
+          display: block;
           height: auto;
           object-fit: contain;
         }
@@ -595,10 +604,16 @@
               <a class="button secondary" href="tel:+16135550198">Call 613-555-0198</a>
             </div>
           </div>
-          <figure class="hero-media">
+          <figure
+            class="hero-media"
+            role="img"
+            aria-label="A clean modern repair bay with diagnostic equipment beside a generic sedan with its hood open."
+          >
             <img
               src="slate-garage-hero-v2.jpg"
-              alt="A clean modern repair bay with diagnostic equipment beside a generic sedan with its hood open."
+              alt=""
+              aria-hidden="true"
+              draggable="false"
               width="380"
               height="214"
             >
