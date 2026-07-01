@@ -8,6 +8,7 @@ These demos show what a cleaner website or lead-capture page could look like for
 
 - `auto-repair-demo/` - Ottawa Auto Care Demo, a fictional auto repair website concept.
 - `auto-repair-demo-slate/` - Ottawa Auto Care Slate Demo, a fictional Photo 2 style comparison concept.
+- `contra-proof-lab-auto-demo/` - OAS Demo Auto Care, a fictional lead-capture landing page with mocked follow-up workflow.
 
 ## Build Mode
 
