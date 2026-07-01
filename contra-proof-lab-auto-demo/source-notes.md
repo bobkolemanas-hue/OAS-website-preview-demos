@@ -4,7 +4,7 @@ Demo: OAS Demo Auto Care Contra Proof Lab Auto Demo
 
 ## Purpose
 
-This demo shows whether a fictional local-service landing page with a quote/request form and follow-up walkthrough can serve as a reusable public proof asset.
+This demo shows whether a fictional local-service quote-first landing page with a request form and follow-up walkthrough can serve as a reusable public proof asset.
 
 ## Fictional Status
 
@@ -25,7 +25,7 @@ The page demonstrates a browser-only intake flow:
 4. Customer would receive a confirmation/follow-up after review.
 5. A human reviews before any customer-impacting automation.
 
-In this public demo, the form only updates the on-page owner summary and confirmation message.
+In this public demo, the form only updates the on-page owner summary and confirmation message. The current layout intentionally uses a compact quote-first structure instead of a large dark hero treatment.
 
 ## Mocked vs Production
 
